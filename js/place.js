@@ -4,7 +4,7 @@ const stateEnum = {
 	selected: `selected`
 };
 
-const places = []
+let reservedPlaces = [];
 
 class Place {
 	price;
@@ -22,29 +22,33 @@ class Place {
 		this.init();
 	}
 
-	// static onClick = (placeEl, id) => {
-	//     placeEl.className =
-	// }
-
 	init = async () => {
 		this.placeEl = document.createElement('div');
 		this.placeEl.className = `place ${this.state ? this.state : ''}`;
 		this.placeEl.setAttribute('data-id', this.id);
 
 		await this.parent.insertAdjacentElement('afterbegin', this.placeEl);
-		// this.placeEl.onClick = () => {
-		// 	console.log('test');
-		// 	this.state = stateEnum.selected;
-		// 	this.render();
-		// };
 		document
 			.querySelector(`[data-id="${this.id}"]`)
 			.addEventListener('click', () => {
-				if (this.state !== stateEnum.selected) {
-					this.state = stateEnum.selected;
-					this.render();
-                    places.push(this.price)
-                    renderPrices()
+				switch (this.state) {
+					case stateEnum.occupied:
+						alert('This place is occupied!');
+						break;
+					case stateEnum.notOccupied:
+						this.state = stateEnum.selected;
+						this.render();
+						reservedPlaces.push({ price: this.price, id: this.id });
+						renderTotalTicketsInfo();
+						break;
+					case stateEnum.selected:
+						this.state = stateEnum.notOccupied;
+						reservedPlaces = reservedPlaces.filter(
+							({ price, id }) => id !== this.id
+						);
+						renderTotalTicketsInfo()
+						this.render()
+						break;
 				}
 			});
 	};
