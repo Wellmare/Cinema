@@ -1,13 +1,15 @@
 const placesContainer = document.querySelector('#places-container');
+import prices from '../prices.json'
+// const prices = require('../prices.json')
 
-const renderHall = (rows, cols) => {
+export const renderHall = (rows, cols) => {
 	const rowsEls = [];
 	for (let i = 0; i < rows; i++) {
 		const rowEl = document.createElement('div');
 		rowEl.className = 'cinema-row';
 
 		for (let j = 0; j < cols; j++) {
-			const price = pricesByRows[i];
+			const price = prices[i.toString()];
 			new Place(
 				price,
 				Math.random().toString(16).slice(2),

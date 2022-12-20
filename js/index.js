@@ -1,1 +1,0 @@
-renderHall(3, 6);

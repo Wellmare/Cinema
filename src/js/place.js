@@ -1,12 +1,12 @@
-const stateEnum = {
+export const stateEnum = {
 	occupied: `occupied`,
 	notOccupied: `not-occupied`,
 	selected: `selected`
 };
 
-let reservedPlaces = [];
+export let reservedPlaces = [];
 
-class Place {
+export class Place {
 	price;
 	id;
 	state;
