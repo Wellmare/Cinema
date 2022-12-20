@@ -1,0 +1,35 @@
+.not-occupied {
+    background: rgb(77, 200, 248);
+}
+
+.occupied {
+    background: rgb(182, 182, 182);
+}
+.selected {
+    background-color: rgb(221, 92, 52);
+}
+
+.cinema-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.place {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0.3rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.screen {
+    background-color: rgb(73, 73, 73);
+    color: white;
+    text-align: center;
+    width: 30%;
+    margin: auto;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding: 1.5rem;
+}
