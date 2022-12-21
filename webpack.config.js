@@ -9,8 +9,19 @@ module.exports = {
 			{
 				test: /\.css$/i,
 				use: [MiniCssExtractPlugin.loader, 'css-loader']
-			}
+			},
+			{ test: /\.([cm]?ts|tsx)$/, loader: 'ts-loader' }
 		]
+	},
+	resolve: {
+		// Add `.ts` and `.tsx` as a resolvable extension.
+		extensions: ['.ts', '.tsx', '.js'],
+		// Add support for TypeScripts fully qualified ESM imports.
+		extensionAlias: {
+			'.js': ['.js', '.ts'],
+			'.cjs': ['.cjs', '.cts'],
+			'.mjs': ['.mjs', '.mts']
+		}
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -22,5 +33,5 @@ module.exports = {
 		}),
 		new MiniCssExtractPlugin()
 	],
-	devtool: 'inline-source-map',
+	devtool: 'inline-source-map'
 };
