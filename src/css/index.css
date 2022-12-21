@@ -1,8 +1,8 @@
-.not-occupied {
+.not-filled {
     background: rgb(77, 200, 248);
 }
 
-.occupied {
+.filled {
     background: rgb(182, 182, 182);
 }
 .selected {
