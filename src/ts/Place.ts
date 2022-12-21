@@ -1,20 +1,19 @@
-import { classByState, State } from './types';
+import { classByState, ISelectedPlace, State } from './types';
 import { getRandomId } from './utils';
 
 export default class Place {
 	private id: string = getRandomId();
-	private placeElement: HTMLDivElement;
+	private placeElement: HTMLDivElement = document.createElement('div');
 
 	constructor(
 		private price: number,
 		private state: State,
-		private parent: HTMLDivElement
-	) {
-		this.init();
-	}
+		private parent: HTMLDivElement,
+		private addSelectedPlace: (place: ISelectedPlace) => void,
+		private removeSelectedPlace: (id: string) => void
+	) {}
 
 	init = async (): Promise<void> => {
-		this.placeElement = document.createElement('div');
 		this.placeElement.className = `place ${
 			this.state ? classByState[this.state] || '' : ''
 		}`;
@@ -34,6 +33,7 @@ export default class Place {
 				break;
 			case State.NOT_FILLED:
 				this.state = State.SELECTED;
+				this.addSelectedPlace({ price: this.price, id: this.id });
 				this.render();
 				// reservedPlaces.push({ price: this.price, id: this.id });
 				// renderTotalTicketsInfo();
@@ -44,6 +44,7 @@ export default class Place {
 				// 	({ price, id }) => id !== this.id
 				// );
 				// renderTotalTicketsInfo();
+				this.removeSelectedPlace(this.id);
 				this.render();
 				break;
 		}
