@@ -1,3 +1,5 @@
+import { renderTotalTicketsInfo } from "./price";
+
 export const stateEnum = {
 	occupied: `occupied`,
 	notOccupied: `not-occupied`,

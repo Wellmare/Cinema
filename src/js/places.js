@@ -1,5 +1,9 @@
 const placesContainer = document.querySelector('#places-container');
-import prices from '../prices.json'
+import prices from '../prices.js';
+import { Place } from './place';
+import { stateEnum } from './place';
+// const prices = JSON.parse(require('../prices'))
+
 // const prices = require('../prices.json')
 
 export const renderHall = (rows, cols) => {

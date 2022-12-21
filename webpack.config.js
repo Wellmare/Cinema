@@ -7,10 +7,6 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.json$/,
-				loader: 'json-loader'
-			},
-			{
 				test: /\.css$/i,
 				use: [MiniCssExtractPlugin.loader, 'css-loader']
 			}
@@ -25,5 +21,6 @@ module.exports = {
 			template: 'src/index.html'
 		}),
 		new MiniCssExtractPlugin()
-	]
+	],
+	devtool: 'inline-source-map',
 };
