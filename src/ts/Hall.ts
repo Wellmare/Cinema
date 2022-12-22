@@ -1,5 +1,15 @@
 import Place from './Place';
-import { IPrice, ISelectedPlace, ITotalInfoNodes, State } from './types';
+import {
+	IPrice,
+	ISelectedPlace,
+	ITotalInfoNodes,
+	Selectors,
+	State
+} from './types';
+
+const totalPriceInput = document.querySelector<HTMLInputElement>(
+	Selectors.TOTAL_PRICE_INPUT
+)!;
 
 export default class Hall {
 	private totalPrice: number = 0;
@@ -43,23 +53,25 @@ export default class Hall {
 	renderTotalInfo = () => {
 		this.totalInfoNodes.totalCount.textContent = this.totalCount.toString();
 		this.totalInfoNodes.totalPrice.textContent = this.totalPrice.toString();
+		totalPriceInput.value = this.totalPrice.toString();
 	};
 
 	reduceTotalValue = () => {
 		if (this.selectedPlaces.length > 0) {
-            let price = 0
-            this.selectedPlaces.forEach((place) => {
-                price+=place.price
-            })
-            this.totalPrice = price
+			let price = 0;
+			this.selectedPlaces.forEach((place) => {
+				price += place.price;
+			});
+			this.totalPrice = price;
 			// this.totalPrice = this.selectedPlaces.reduce((prevVal, currVal) => {
 			// 	prevVal.price += currVal.price;
 			// 	return prevVal;
 			// }).price;
 		} else {
-            this.totalPrice = 0
-        }
+			this.totalPrice = 0;
+		}
 		this.totalCount = this.selectedPlaces.length;
+		return this.totalPrice;
 	};
 
 	addSelectedPlace = (place: ISelectedPlace) => {

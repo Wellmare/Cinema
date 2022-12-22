@@ -115,54 +115,151 @@
 						<p>
 							Выбрано билетов: <span id="amount-tickets">0</span>
 						</p>
-						<p>Итого: <span id="price">0</span> руб.</p>
+						<div class="d-flex justify-content-between">
+							<p>Итого: <span id="price">0</span> руб.</p>
+							<button
+								type="button"
+								class="btn btn-success"
+								data-bs-toggle="modal"
+								data-bs-target="#booking-modal"
+							>
+								Забронировать
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="container-sm mt-5">
+			<!-- Modal -->
+			<div
+				class="modal fade"
+				id="booking-modal"
+				tabindex="-1"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">
+								Бронь
+							</h5>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-floating mb-3">
+									<input
+										type="number"
+										class="form-control"
+										name="phone-number"
+										id="phone-number"
+										placeholder="8 908 123 12 123"
+									/>
+									<label for="phone-number"
+										>Номер телефона</label
+									>
+								</div>
+								<div class="row">
+									<div
+										class="form-floating mb-3 col-12 col-md-6"
+									>
+										<input
+											type="email"
+											class="form-control"
+											name="email"
+											id="email"
+											placeholder="example@gmail.com"
+										/>
+										<label for="email" class="px-4">E-mail</label>
+									</div>
+									<div
+										class="form-floating mb-3 col-12 col-md-6"
+									>
+										<input
+											type="number"
+											class="form-control disabled"
+											name="total-price"
+											id="total-price"
+											disabled
+											value="0"
+										/>
+										<label for="total-price" class="px-4"
+											>Итоговая стоимость</label
+										>
+									</div>
+								</div>
+								<button
+									type="button"
+									id="buy"
+									class="btn btn-success w-100 mt-3 mb-3"
+								>
+									Забронировать
+								</button>
+							</form>
+						</div>
+						<!-- <div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal"
+							>
+								Закрыть
+							</button>
+						</div>  -->
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="container-sm mt-5">
 				<form>
 					<div class="form-floating mb-3">
 						<input
-							type="text"
+							type="tel"
 							class="form-control"
-							name="number-card"
-							id="number-card"
-							placeholder="1234 **** **** ****"
+							name="phone-number"
+							id="phone-number"
+							placeholder="8 908 123 12 123"
 						/>
-						<label for="number-card">Номер карты</label>
+						<label for="number-card">Номер телефона</label>
 					</div>
 					<div class="row">
 						<div class="form-floating mb-3 col-12 col-md-6">
 							<input
-								type="text"
+								type="email"
 								class="form-control"
-								name="name"
-								id="name"
-								placeholder="Иван"
+								name="email"
+								id="email"
+								placeholder="example@gmail.com"
 							/>
-							<label for="name">Имя</label>
+							<label for="name" class="px-4">Имя</label>
 						</div>
 						<div class="form-floating mb-3 col-12 col-md-6">
 							<input
-								type="text"
-								class="form-control"
-								name="cvc"
-								id="cvc"
-								placeholder="123"
-								maxlength="3"
+								type="number"
+								class="form-control disabled"
+								name="total-price"
+								id="total-price"
+								disabled
 							/>
-							<label for="cvc">CVC</label>
+							<label for="cvc" class="px-4"
+								>Итоговая стоимость</label
+							>
 						</div>
 					</div>
 					<button type="submit" id="buy" class="btn btn-success">
 						Забронировать
 					</button>
 				</form>
-			</div>
+			</div> -->
 		</main>
-		<footer>
-			<!-- place footer here -->
+		<footer class="bg-dark bg-opacity-75 py-5 mt-5 px-3 text-white-50 text-center">
+			Лучший сервис
 		</footer>
 		<!-- Bootstrap JavaScript Libraries -->
 		<script

@@ -18,7 +18,11 @@ export interface IPrice {
 export const enum Selectors {
 	PLACES_CONTAINER = '#places-container',
 	TOTAL_COUNT_NODE = '#amount-tickets',
-	TOTAL_PRICE_NODE = '#price'
+	TOTAL_PRICE_NODE = '#price',
+	BOOKING_BUTTON = `#buy`,
+	NUBMER_PHONE_INPUT = `#phone-number`,
+	EMAIL_INPUT = `#email`,
+	TOTAL_PRICE_INPUT = `#total-price`
 }
 
 export interface ITotalInfoNodes {
